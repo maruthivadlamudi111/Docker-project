@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-python-deployment
+spec:
+  replicas: 2  # Specify 2 replicas
+  selector:
+    matchLabels:
+      app: my-python-app
+  template:
+    metadata:
+      labels:
+        app: my-python-app
+    spec:
+      containers:
+      - name: my-python-container
+        image: my-python-container:latest  # Replace with your image name
+        ports:
+        - containerPort: 80  # If your container listens on port 80
